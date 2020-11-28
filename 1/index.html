@@ -16,10 +16,11 @@
   })
 </script>
 <a-scene cursor="rayOrigin: mouse" gesture-detector>
-  <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" foo gesture-handler></a-box>
+  <a-entity gesture-handler>
+  <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" foo ></a-box>
   <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
     <a-cylinder position="-2 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
   <a-cylinder position="0.5 0.75 -5" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-
+  </a-entity>
   <a-sky color="#ECECEC"></a-sky>
 </a-scene>
