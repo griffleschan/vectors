@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Raffles Institution Mathematics Department</title>
+    <meta charset="utf-8" />
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="gesture-detector.js"></script>
+    <script src="gesture-handler.js"></script>
+  </head>
+
+  <body>
+    
+    <div
+      style="
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+      "
+    >
+      <button onclick="titlefn('Line parallel to plane but not on plane','p1')">No Intersection</button>
+      <button onclick="titlefn('Line on plane','p2')">Line on Plane</button>
+      <button onclick="titlefn('Line intersects plane at one point','p3')">Single Point of Intersection</button>
+      <p id="planeline">Line parallel to plane but not on plane</p>
+      <script>
+        function titlefn(name,id){
+          document.getElementById("planeline").innerHTML =name;
+          let planes = document.querySelectorAll(["#p1","#p2","#p3"])
+          planes.forEach(function(el){el.setAttribute("visible",false)});
+          document.querySelector("#"+id).setAttribute("visible")
+        }
+      </script>
+    </div>
+    <a-scene cursor="rayOrigin: mouse" raycaster="objects: #mycursor" vr-mode-ui="enabled: false">
+
+      <a-assets>
+        <a-asset-item id="3.1.1.1 Plane" src="src/diagrams/3.1.1.1 Plane_e.glb">
+        </a-asset-item>
+        <a-asset-item
+          id="3.1.1.2 Planescalar"
+          src="src/diagrams/3.1.1.2 Planescalar_e.glb"
+        >
+        </a-asset-item>
+        <a-asset-item
+          id="3.3.1.a plnoint"
+          src="src/diagrams/3.3.1.a plnoint_e.glb"
+        >
+        </a-asset-item>
+        <a-asset-item id="3.3.1.b plp" src="src/diagrams/3.3.1.b plp_e.glb">
+        </a-asset-item>
+        <a-asset-item id="3.3.1.c pl1" src="src/diagrams/3.3.1.c pl1_e.glb">
+        </a-asset-item>
+      </a-assets>
+
+
+      <a-entity position="0 0 0">
+        
+        <a-entity
+          id="p1"
+          gltf-model="#3.3.1.a plnoint"
+          position="0 1 -1.5"
+          rotation="0 0 0"
+          scale="10 10 10"
+          class="clickable"
+          gesture-handler
+          visible = "true"
+        >
+        </a-entity>
+
+          <a-entity
+            id="p2"
+            gltf-model="#3.3.1.b plp"
+            position="0 1 -1.5"
+            rotation="0 0 0"
+            scale="10 10 10"
+            class="clickable"
+            gesture-handler
+            visible = "false"
+          >
+          </a-entity>
+        
+  
+          <a-entity
+            id="p3"
+            gltf-model="#3.3.1.c pl1"
+            position="0 1 -1.5"
+            rotation="0 0 0"
+            scale="10 10 10"
+            class="clickable"
+            gesture-handler
+            visible = "false"
+          >
+          </a-entity>
+        
+        <a-sky color="#ECECEC"></a-sky>
+        
+    </a-entity>
+   
+   
+    <!--<script>
+      document.querySelector("#button2").addEventListener("click", function () {
+        window.location.href = "https://supermedium.com/supercraft/";
+      });
+    </script>-->
+
+  </body>
+  
+</html>
