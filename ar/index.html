@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Raffles Institution Mathematics Department</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="gesture-detector.js"></script>
+    <script src="gesture-handler.js"></script>
+  </head>
+
+  <body>
+    <a-scene
+      arjs
+      embedded
+      vr-mode-ui="enabled: false"
+      renderer="foveationLevel: 2"
+      gesture-detector
+      id="scene"
+    >
+      <a-assets>
+        <a-asset-item
+          id="2.1.1 Line"
+          src="src/diagrams/2.1.1 Line_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="2.2.2 foot"
+          src="src/diagrams/2.2.2 foot_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="2.3.1 il"
+          src="src/diagrams/2.3.1 il.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="2.3.1 pl"
+          src="src/diagrams/2.3.1 pl.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="2.3.1 sl"
+          src="src/diagrams/2.3.1 sl.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="2.3.2 anglelines"
+          src="src/diagrams/2.3.2 anglelines_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="3.1.1.1 Plane"
+          src="src/diagrams/3.1.1.1 Plane_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="3.1.1.2 Planescalar"
+          src="src/diagrams/3.1.1.2 Planescalar_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="3.3.1.a plnoint"
+          src="src/diagrams/3.3.1.a plnoint_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="3.3.1.b plp"
+          src="src/diagrams/3.3.1.b plp_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="3.3.1.c pl1"
+          src="src/diagrams/3.3.1.c pl1_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="3.3.2 plangle"
+          src="src/diagrams/3.3.2 plangle_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="3.4.1 angle2planes"
+          src="src/diagrams/3.4.1 angle2planes_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="3.4.2.a parallelplanes"
+          src="src/diagrams/3.4.2.a parallelplanes_e.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="3.4.2.b intersectplanes"
+          src="src/diagrams/3.4.2.b intersectplanes_e.glb"
+        ></a-asset-item>
+      </a-assets>
+      <!--1-->
+      <a-marker
+        type="pattern"
+        url="src/markers/00.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="2.1.1 Line-model"
+          gltf-model="#2.1.1 Line"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--2-->
+      <a-marker
+        type="pattern"
+        url="src/markers/01.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="2.2.2 foot-model"
+          gltf-model="#2.2.2 foot"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--3-->
+      <a-marker
+        type="pattern"
+        url="src/markers/02.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="2.3.1 il-model"
+          gltf-model="#2.3.1 il"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--4-->
+      <a-marker
+        type="pattern"
+        url="src/markers/03.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="2.3.1 pl-model"
+          gltf-model="#2.3.1 pl"
+          position="0 0 0"
+          rotation="-90 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--5-->
+      <a-marker
+        type="pattern"
+        url="src/markers/04.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="2.3.1 sl-model"
+          gltf-model="#2.3.1 sl"
+          position="0 0 0"
+          rotation="-60 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--6-->
+      <a-marker
+        type="pattern"
+        url="src/markers/05.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="2.3.2 anglelines-model"
+          gltf-model="#2.3.2 anglelines"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--7-->
+      <a-marker
+        type="pattern"
+        url="src/markers/06.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="3.1.1.1 Plane-model"
+          gltf-model="#3.1.1.1 Plane"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--8-->
+      <a-marker
+        type="pattern"
+        url="src/markers/07.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="3.1.1.2 Planescalar-model"
+          gltf-model="#3.1.1.2 Planescalar"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--9-->
+      <a-marker
+        type="pattern"
+        url="src/markers/08.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="3.3.1.a plnoint-model"
+          gltf-model="#3.3.1.a plnoint"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--10-->
+      <a-marker
+        type="pattern"
+        url="src/markers/09.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="3.3.1.b plp-model"
+          gltf-model="#3.3.1.b plp"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--11-->
+      <a-marker
+        type="pattern"
+        url="src/markers/10.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="3.3.1.c pl1-model"
+          gltf-model="#3.3.1.c pl1"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--12-->
+      <a-marker
+        type="pattern"
+        url="src/markers/11.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="3.3.2 plangle-model"
+          gltf-model="#3.3.2 plangle"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--13-->
+      <a-marker
+        type="pattern"
+        url="src/markers/12.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="3.4.1 angle2planes-model"
+          gltf-model="#3.4.1 angle2planes"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--14-->
+      <a-marker
+        type="pattern"
+        url="src/markers/13.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="3.4.2.a parallelplanes-model"
+          gltf-model="#3.4.2.a parallelplanes"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <!--15-->
+      <a-marker
+        type="pattern"
+        url="src/markers/14.patt"
+        smooth="true"
+        smoothCount="50"
+        smoothTolerance="0.1"
+        smoothThreshold="1000"
+      >
+        <a-entity
+          id="3.4.2.b intersectplanes-model"
+          gltf-model="#3.4.2.b intersectplanes"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <!--end-->
+
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
