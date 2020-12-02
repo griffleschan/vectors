@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Raffles Institution Mathematics Department</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>    
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+  </head>
+
+  <body>
+    <div
+      style="
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+      "
+    >
+      <button onclick="titlefn('Not Parallel, Intersecting Lines','intersect','pers')">Not Parallel, Intersecting Lines</button>
+      <button onclick="titlefn('Parallel, Not Intersecting Lines','parallel','pers')">Parallel, Not Intersecting Lines</button>
+      <button onclick="titlefn('Skew Lines','skew','pers')">Skew Lines</button>
+      <button onclick="titlefn('Skew Lines (Alternate View)','skew','alt')">Skew Lines (Alternate View)</button>
+      <p id="planeline">Not Parallel, Intersecting Lines</p>
+      <script>
+        function titlefn(name,id,view){
+          document.getElementById("planeline").innerHTML =name;
+          let lines = document.querySelectorAll(["#intersect","#parallel","#skew"])
+          lines.forEach(function(el){el.setAttribute("visible",false)});
+          document.querySelector("#"+id).setAttribute("visible",true)
+          let camviews = document.querySelectorAll(["#pers","#alt"])
+          camviews.forEach(function(el){el.setAttribute("camera","active",false)});
+          document.querySelector("#"+view).setAttribute("camera",'active', true)
+
+        }
+      </script>
+    </div>
+
+    <a-scene cursor="rayOrigin: mouse" raycaster="objects: #mycursor" vr-mode-ui="enabled: false" > 
+    
+    <a-assets>
+        <a-asset-item id="il" src="diagram/2.3.1 il.glb"></a-asset-item>
+        <a-asset-item id="pl" src="diagram/2.3.1 pl.glb"></a-asset-item>
+        <a-asset-item id="sl" src="diagram/2.3.1 sl.glb"></a-asset-item>
+    </a-assets>
+
+
+    <a-entity
+          id = "intersect"
+          gltf-model="#il"
+          position="0 0 -1.5"
+          rotation="0 0 0"
+          scale="15 15 15"
+          class="clickable"
+          visible = "true"
+          >
+    </a-entity> 
+    <a-entity
+          id = "parallel"
+          gltf-model="#pl"
+          position="0 0 -1.5"
+          rotation="0 0 0"
+          scale="15 15 15"
+          class="clickable"
+          visible = "false"
+    >
+    </a-entity> 
+    <a-entity
+       id = "skew"
+          gltf-model="#sl"
+          position="0 0 -1.5"
+          rotation="-25 0 0"
+          scale="15 15 15"
+          class="clickable"
+          visible = "false"
+        >
+        </a-entity> 
+     <a-sky color="#ECECEC"></a-sky>
+    <a-entity id="pers" camera="active: false" look-controls position="0 1.718 0.015"> </a-entity>
+    <a-entity id = "alt" camera="active: false" look-controls position="0 2 0.015"></a-entity>
+  </body>
+</html>

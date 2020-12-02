@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Raffles Institution Mathematics Department</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>    
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+  </head>
+
+  <body>
+    <div
+      style="
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+      "
+    >
+      <button onclick="titlefn('Perspective View','persview')">Perspective View</button>
+      <button onclick="titlefn('Top View','topview')">Top View</button>
+      <p id="planeline">Perspective View</p>
+      <script>
+        function titlefn(name,id){
+          document.getElementById("planeline").innerHTML =name;
+          let planes = document.querySelectorAll(["#topview","#persview"])
+          planes.forEach(function(el){el.setAttribute("visible",false)});
+          document.querySelector("#"+id).setAttribute("visible",true )
+          let planescam = document.querySelectorAll(["#topviewcam","#persviewcam"])
+          planescam.forEach(function(el){el.setAttribute("camera",'active',false)});
+          document.querySelector("#"+id+"cam").setAttribute("camera",'active', true)
+        }
+      </script>
+    </div>
+
+    <a-scene cursor="rayOrigin: mouse" raycaster="objects: #mycursor" vr-mode-ui="enabled: false" > 
+    
+    <a-assets>
+        <a-asset-item id="2.3.2 anglelines" src="diagram/2.3.2 anglelines_e.glb"></a-asset-item>
+    </a-assets>
+
+    <a-entity id="topview" visible = "false">
+        <a-entity
+          gltf-model="#2.3.2 anglelines"
+          position="0 0 0"
+          rotation="30 -5 0"
+          scale="10 10 10"
+          class="clickable"
+        >
+        </a-entity> 
+        <a-sky color="#ECECEC"></a-sky>
+        <a-entity id = "topviewcam" camera="active: false" look-controls position="-0.044 1.5 1.1"></a-entity>
+    </a-entity>
+    <a-entity id="persview" visible = "true">
+      <a-entity
+        gltf-model="#2.3.2 anglelines"
+        position="0 1 -1"
+        rotation="0 0 0"
+        scale="10 10 10"
+        class="clickable"
+      >
+      </a-entity> 
+      <a-sky color="#ECECEC"></a-sky>
+      <a-entity id = "persviewcam"
+      camera="active: false" look-controls position="0 1.718 0.015"></a-entity>
+    </a-entity>
+  </body>
+</html>
