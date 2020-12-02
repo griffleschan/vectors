@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Raffles Institution Mathematics Department</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>    
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+  </head>
+
+  <body>
+    <div
+      style="
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+      "
+    >
+      <button onclick="titlefn('Parallel Planes','parallel')">Parallel Planes</button>
+      <button onclick="titlefn('Non-Parallel Planes','intersect')">Non-Parallel Planes</button>
+      <p id="planeline">Parallel Planes</p>
+      <script>
+        function titlefn(name,id){
+          document.getElementById("planeline").innerHTML =name;
+          let lines = document.querySelectorAll(["#parallel","#intersect"])
+          lines.forEach(function(el){el.setAttribute("visible",false)});
+          document.querySelector("#"+id).setAttribute("visible",true)
+        }
+      </script>
+    </div>
+
+    <a-scene cursor="rayOrigin: mouse" raycaster="objects: #mycursor" vr-mode-ui="enabled: false" > 
+    
+    <a-assets>
+        <a-asset-item id="pp" src="diagram/3.4.2.a parallelplanes_e.glb"></a-asset-item>
+        <a-asset-item id="ip" src="diagram/3.4.2.b intersectplanes_e.glb"></a-asset-item>
+    </a-assets>
+
+
+    <a-entity
+          id = "parallel"
+          gltf-model="#pp"
+          position="0 0.8 -2"
+          rotation="0 0 0"
+          scale="10 10 10"
+          class="clickable"
+          visible = "true"
+          >
+    </a-entity> 
+    <a-entity
+          id = "intersect"
+          gltf-model="#ip"
+          position="0 0.8 -2"
+          rotation="0 -30 0"
+          scale="10 10 10"
+          class="clickable"
+          visible = "false"
+    >
+    </a-entity> 
+    <a-entity camera="active: true" look-controls position="0.5 1.2 0"></a-entity>
+     <a-sky color="#ECECEC"></a-sky>
+  </body>
+</html>

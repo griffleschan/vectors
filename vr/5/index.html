@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Raffles Institution Mathematics Department</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>    
+  </head>
+
+  <body>
+    <div
+      style="
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+      "
+    >
+      <button onclick="titlefn('View above the Plane','topview')">View above the Plane</button>
+      <button onclick="titlefn('View below the Plane','bottomview')">View below the Plane</button>
+      <p id="planeline">View above the Plane</p>
+      <script>
+        function titlefn(name,view){
+          document.getElementById("planeline").innerHTML =name;
+          let camviews = document.querySelectorAll(["#topview","#bottomview"])
+          camviews.forEach(function(el){el.setAttribute("camera","active",false)});
+          document.querySelector("#"+view).setAttribute("camera",'active', true)
+
+        }
+      </script>
+    </div>
+
+    <a-scene cursor="rayOrigin: mouse" raycaster="objects: #mycursor" vr-mode-ui="enabled: false">
+    
+    <a-assets>
+        <a-asset-item id="3.1.1.1 Plane" src="diagram/3.1.1.1 Plane_e.glb">
+    </a-assets>
+
+    <a-entity position="0 0 0">
+        <a-entity
+          id="p1"
+          gltf-model="#3.1.1.1 Plane"
+          position="0 1 -0.5"
+          rotation="0 0 0"
+          scale="10 10 10 "
+          class="clickable"
+          visible = "true"
+        >
+        </a-entity> 
+        <a-entity id = "topview"
+        camera="active: true" look-controls position="0 1.6 0"></a-entity>
+        <a-entity id = "bottomview"
+        camera="active: false" look-controls position="0 1.2 0"></a-entity>
+    </a-entity>
+  </body>
+</html>
