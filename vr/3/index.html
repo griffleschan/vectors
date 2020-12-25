@@ -21,7 +21,7 @@
       <button onclick="titlefn('Not Parallel, Intersecting Lines','intersect','pers')">Not Parallel, Intersecting Lines</button>
       <button onclick="titlefn('Parallel, Not Intersecting Lines','parallel','pers')">Parallel, Not Intersecting Lines</button>
       <button onclick="titlefn('Skew Lines','skew','pers')">Skew Lines</button>
-      <button onclick="titlefn('Skew Lines (Alternate View)','skew','alt')">Skew Lines (Alternate View)</button>
+      <button onclick="titlefn('Skew Lines (Alternate View)','skew','alt')">Skew Lines (Animation)</button>
       <p id="planeline">Not Parallel, Intersecting Lines</p>
       <script>
         function titlefn(name,id,view){
@@ -81,6 +81,8 @@
         </a-entity> 
      <a-sky color="#ECECEC"></a-sky>
     <a-entity id="pers" camera="active: false" look-controls position="0 1.718 0.015"> </a-entity>
-    <a-entity id = "alt" camera="active: false" look-controls position="0 2 0.015"></a-entity>
+    <a-entity id = "alt" camera="active: false" look-controls position="0 2 0.015" 
+      animation="property: position; to: 0 -2 0.015; loop: true; easing: linear; dur: 5000; dir: alternate">
+    </a-entity>
   </body>
 </html>
